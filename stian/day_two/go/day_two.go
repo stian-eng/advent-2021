@@ -26,31 +26,9 @@ func main() {
 }
 
 func partOne(data []int) int {
-	prev := data[0]
-	counter := 0
-	for _, v := range data {
-		if v > prev {
-			counter++
-		}
-		prev = v
-	}
-	return counter
+	return 0
 }
 
 func partTwo(data []int) int {
-	curr_sum := 0
-	prev_sum := 0
-	counter := 0
-	for i, v := range data {
-		curr_sum += v
-		if i > 2 {
-			if curr_sum > prev_sum {
-				counter++
-			}
-			prev_sum = curr_sum
-			curr_sum -= data[i-2]
-		}
-	}
-
-	return counter
+	return 0
 }
