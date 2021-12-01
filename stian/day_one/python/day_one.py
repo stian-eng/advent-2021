@@ -30,7 +30,6 @@ def part_two(data) :
     for i in range(len(data)) :
         curr_sum += data[i]
         if i > 2 :
-            print(curr_sum, prev_sum)
             if curr_sum > prev_sum :
                 count += 1
             prev_sum = curr_sum
