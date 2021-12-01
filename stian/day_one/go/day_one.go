@@ -51,6 +51,5 @@ func partTwo(data []int) int {
 			curr_sum -= data[i-2]
 		}
 	}
-
 	return counter
 }
