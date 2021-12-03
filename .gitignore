@@ -2,7 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+.vscode/
+stian/day_one/c/day_one.dSYM/
+stian/day_three/2020
+stian/day_three/python/cookies.txt
+*aoc_frame.py
 # C extensions
 *.so
 
