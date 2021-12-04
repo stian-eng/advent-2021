@@ -1,25 +1,70 @@
-data = []
-test_data = []
-with open('day_three.txt', 'r') as f :
-    for line in f.readlines() :
-        data.append(line.strip('\n'))
+import aoc_frame
 
-with open("test.txt", 'r') as f :
-    for line in f.readlines() :
-        test_data.append(line.strip('\n'))
+def part_one(data, flag) :
+    count_zero = [0 for i in range(len(data[0]))]
+    count_one = [0 for i in range(len(data[0]))]
+    for i in data :
+        for k, v in enumerate(i) :
+            if v == '1' :
+                count_one[k] += 1
+            else :
+                count_zero[k] += 1
+    
+    gamma = ''
+    epsilon = ''
+    for i in range(len(count_zero)) :
+        if count_zero[i] > count_one[i] :
+            gamma += '0'
+            epsilon += '1'
+        elif count_zero[i] < count_one[i] :
+            gamma += '1'
+            epsilon += '0'
+        else :
+            gamma += '1'
+            epsilon += '0'
+    
+    if flag :
+        return gamma, epsilon
 
-# GUT CHECK
-print(test_data, len(test_data))
-print(data[0], data[1], data[-1], len(data))
+    gamma = int(gamma, 2)
+    epsilon = int(epsilon, 2)
 
-def part_one(data) :
-    pass
+    return gamma * epsilon
 
-def part_two(data) :
-    pass
+def part_two(data) :                
+    gamma, epsilon = part_one(data, True)
+    kept = data
+    i = 0
+    while len(kept) > 1 :
+        gamma, epsilon = part_one(kept, True)
+        kept = find_remaining(kept, gamma, i)
+        i += 1
+    oxygen = int(kept[0], 2)
+    
+    kept = data
+    i = 0
+    while len(kept) > 1 :
+        gamma, epsilon = part_one(kept, True)
+        kept = find_remaining(kept, epsilon, i)
+        i += 1
+    
+    carbon = int(kept[0], 2)
+
+    return oxygen * carbon
+
+def find_remaining(data, keyword, index) :
+    new_data = []
+    for i in data :
+        if i[index] == keyword[index] :
+            new_data.append(i)
+    
+    return new_data
 
 if __name__ == '__main__' :
-    print("PART 1:", part_one(data))
-    print("PART 1 TEST INPUT:", part_one(test_data))
-    print("PART 2:", part_two(data))
-    print("PART 2 TEST:", part_two(test_data))
+    data = []
+    test_data = []
+
+    data, test_data = aoc_frame.read_data(2021, 3)
+    print('Test Data:', test_data, '\n')
+    aoc_frame.format_strings(part_one(data, False), part_one(test_data, False), 1)
+    aoc_frame.format_strings(part_two(data), part_two(test_data), 2)
