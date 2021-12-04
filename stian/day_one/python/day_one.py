@@ -42,3 +42,4 @@ if __name__ == '__main__' :
     print("part 1 TEST:", part_one(test_data))
     print("part 2:", part_two(data))
     print("part 2 TEST:", part_two(test_data))
+
