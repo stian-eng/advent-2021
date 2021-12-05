@@ -9,6 +9,7 @@ stian/day_three/python/cookies.txt
 .DS_Store
 *aoc_frame.py
 *test.txt
+*cookies.txt
 # C extensions
 *.so
 
