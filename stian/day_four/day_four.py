@@ -87,7 +87,6 @@ def helper(data) :
 if __name__ == '__main__' :
     data = []
     test_data = []
-    # data, test_data = aoc_frame.read_data(2021, 4)
     with open('day_four.txt', 'r') as f :
         for line in f.readlines() :
             board = []
@@ -96,15 +95,8 @@ if __name__ == '__main__' :
             else :
                 data.append(board)
                 board = []
-    # part_one(data)
-    with open('day_four.txt', 'r') as f :
-        # test = f.read().split('\n')
 
-        # for i in range(len(test)) :
-        #     if i == 0 :
-        #         nums = i
-        #     elif not test[i] :
-        #         # part of curr board
+    with open('day_four.txt', 'r') as f :
         boards = {}
         i = 0
         boards[i] = []
@@ -114,12 +106,4 @@ if __name__ == '__main__' :
             else :
                 i += 1
                 boards[i] = []
-    # print(test_data)
     print(part_one(boards))
-
-    # mark_numbers(test_data, '11')
-    # print(test_data)
-    # print(data)
-    # print('Test Data:', test_data, '\n')
-    # aoc_frame.format_strings(part_one(data), part_one(test_data), 1)
-    # aoc_frame.format_strings(part_two(data), part_two(test_data), 2)
