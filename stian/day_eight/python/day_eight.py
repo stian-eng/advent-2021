@@ -22,7 +22,7 @@ def part_two(data) :
     look_for = [2, 4, 3, 7]
     other_mappings = {2 : '1', 4 : '4', 3 : '7', 7 : '8'}
     mappings_one = {1 : '256', 2 : '039'}
-    mappings_four = {3 : '03456', 2 : '2', 4 : '9'}
+    mappings_four = {3 : '0356', 2 : '2', 4 : '9'}
     mappings_seven = {3 : '039', 2 : '256'}
     mappings_eight = {6 : '069', 5 : '235'}
     sum = 0
